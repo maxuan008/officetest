@@ -1,0 +1,70 @@
+<div id="placeholder"></div>
+<script type="text/javascript" src="http://192.168.0.125:8000/web-apps/apps/api/documents/api.js">
+
+
+
+</script>
+
+<script type="text/javascript" >
+
+
+config = {
+    "document": {
+        "permissions": {
+            "download": true,
+            "edit": true,
+            "print": true,
+            "review": true
+        },
+        "author":"小马哥",
+        "fileType": "xlsx",
+        "key": "excel8896522",
+        "title": "小马哥文档.excel",
+        "url": "http://192.168.0.125:8015/excel.xlsx"
+    },
+    "documentType": "spreadsheet",
+
+
+    "editorConfig":{
+	//"callbackUrl":"https:\/\/api.onlyoffice.com\/editors\/callback"},
+	
+ 	"lang": "zh-CN", //"en-US", 
+	"height":"100%",
+	"token":"ew0KICAidh0oIjogIjEwMCUiDQp9.iNI5lpSEAYejhJQEywrWefQm_CUk54O_q3JHQjQ02fE",
+	"width":"100%",
+	"customization": {
+            "chat": true,
+            "commentAuthorOnly": false,
+            "compactToolbar": false,
+            "customer": {
+                "address": "My City, 123a-45",
+                "info": "Some additional information",
+                "logo": "http://192.168.0.125:8015/mxoffice.png",
+                "mail": "maxuan008@qq.com",
+                "name": "Xuan Ma",
+                "www": "example.com"
+            },
+            "feedback": {
+                "url": "https://example.com",
+                "visible": true
+            },
+	   "forcesave": false,
+            "logo": {
+                "image": "http://192.168.0.125:8015/mxoffice.png",
+                "imageEmbedded": "http://192.168.0.125:8015/mxoffice.png",
+                "url": "http://192.168.0.125:8015/"
+            },
+            "showReviewChanges": false,
+            "zoom": 100
+	 }
+
+     }
+
+
+};
+
+
+window.docEditor = new DocsAPI.DocEditor("placeholder", config);
+
+
+</script>

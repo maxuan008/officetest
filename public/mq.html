@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>MQ coo</title>
+</head> 
+<script type="text/javascript" src="./sockjs.min.js" ></script>
+<script type="text/javascript" src="./stomp.js" ></script>
+
+<script type="text/javascript" language="JavaScript">
+console.log(100)
+
+//var ws = new WebSocket('ws://127.0.0.1:15670/web-stomp-examples');
+
+//var ws = new SockJS('http://192.168.0.100:15674/stomp');
+var ws = new SockJS('https://xcxtest.veilytech.com/stomp');
+var client = Stomp.over(ws);
+
+// 建立连接
+//var client = Stomp.over(ws);
+// SockJS does not support heart-beat: disable heart-beats
+client.heartbeat.outgoing = 20000;
+client.heartbeat.incoming = 0;
+// 定义连接成功回调函数
+var on_connect = function(x) {
+console.log('connect successfully');
+ // 发送消息
+//client.send(destination,head,body);
+ // 发送消息 subscribe
+ var sub =client.subscribe('/queue/new_A',function(message){
+    console.log(message)
+});
+ // 默认主动 ACK，手动 ACK
+// client.subcribe('/queue/new_A',function(message){
+//     console.log
+//  Message.ack();
+// },{ack:'client'});
+// 事务支持
+// var tx = client.begin();
+// client.send(destination,head,body);
+// tx.commit();
+};
+// 定义连接失败回调函数 
+var on_error = function(error) {
+ console.log(error.headers.message);
+};
+
+
+
+client.connect('sgt', 'sgt', on_connect, on_error, '/');
+
+
+
+
+</script>
+
+
+
+
+
+
+<body scroll="no" class="hashover">
+</body>
+</html>
